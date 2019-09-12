@@ -1,0 +1,43 @@
+The main purpose of decorators is an ability to change behaviour of function without changing function's code.
+
+Decorator - function which expects another function as paramater.
+Inside decorator it defines wrapper-function which can add code before or after function code.
+For example:
+
+######################
+def my_decorator(func):
+	def wrapper():
+		print('Code before func')
+		func()
+		print('Code after func')
+	return wrapper
+
+def my_func():
+	print('hello world')
+
+decorated_func = my_decorator(my_func)
+decorated_func()
+######################
+
+As you can see my_decorator(func) returns wrapper function which can be used to change function's behaviour.
+
+We can do the same by using syntax structure of decorator like that:
+
+######################
+@my_decorator
+def my_func():
+	print('hello world')
+
+my_func()#Now decorator will be called
+######################
+
+In my opinion decorators are useful tools,they improve program's architecture ,
+but at the same time they complicate code readability.
+
+
+
+
+
+
+
+
